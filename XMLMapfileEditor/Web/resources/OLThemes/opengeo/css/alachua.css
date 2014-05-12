@@ -1,0 +1,420 @@
+html, body {
+    font-family:tahoma,arial,helvetica,sans-serif;
+}
+
+#loading {
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    left: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    z-index:20001;
+}
+
+#loading .loading-indicator {
+    color:#555555;
+    font-size:12px;
+    font-weight:bold;
+    left: 43%;
+    top: 45%;
+    position: relative;
+    width: 200px;
+}
+
+.wait * {
+    cursor: wait;
+}
+
+.x-border-layout-ct {
+    background:#DEECFD;
+}
+
+/* Ext override: .x-btn-text-icon .x-btn-center .x-btn-text */
+/* Lower the bottom padding to 0 px to get rid of weirdness. */
+/* Change top padding to 2 to make text fit better aside an icon. */
+.x-btn-text-icon .x-btn-center .x-btn-text {
+    padding: 2px 0 0px 18px;
+}
+
+/* Hack to make sure the text in .x-link-btn buttons is positioned
+ * in the same place as .x-btn-text-icon buttons. Not sure why this works... */
+.x-btn {
+    font-size: medium;
+}
+
+/* Ext override: .x-btn-left i, .x-btn-right i
+ * Remove a weird bug in Ext where a blue line ends up showing across
+ * toolbar buttons. */
+.x-btn-left i, .x-btn-right i {
+    line-height: 0;
+}
+
+/* Alachua specific changes below: */
+.x-btn .loading {
+    background-image: url(../img/loading.gif);
+}
+
+.x-btn .delete {
+    background-image: url(../img/delete.png);
+}
+
+.x-btn .add {
+    background-image: url(../img/add.png);
+}
+
+.x-btn .magnifier {
+    background-image: url(../img/magnifier.png);
+}
+
+.x-btn .magnifier-zoom-in {
+    background-image: url(../img/magnifier_zoom_in.png);
+}
+
+.x-btn .magnifier-zoom-out {
+    background-image: url(../img/magnifier_zoom_out.png);
+}
+
+.x-btn .geoserver-logo-sixteen {
+    background-image: url(../img/geoserver-16.png);
+}
+
+.x-btn .pan {
+    background-image: url(../img/pan.png);
+}
+
+.x-btn .zoom {
+    background-image: url(../img/zoom.png);
+}
+
+.x-btn .map, .x-menu-item .map {
+    background-image: url(../img/map.png);
+}
+
+.x-btn .left, .x-menu-item .left {
+    background-image: url(../img/arrow_left.png);
+}
+
+.x-btn .right, .x-menu-item .right {
+    background-image: url(../img/arrow_right.png);
+}
+
+.x-btn .save, .x-menu-item .save {
+    background-image: url(../img/disk.png);
+}
+
+.x-btn .building, .x-menu-item .building {
+    background-image: url(../img/building.png);
+}
+
+.x-btn .cursor {
+    background-image: url(../img/cursor.png);
+}
+
+.x-btn .measure {
+    background-image: url(../img/measure.png);
+}
+
+.x-btn .imageryviewer {
+    background-image: url(../img/imageryviewer.png);
+}
+
+.x-btn .help {
+    background-image: url(../img/help.png);
+}
+
+.x-btn .legend {
+    background-image: url(../img/chart_line.png);
+}
+
+.x-btn .basket {
+    /*background-image: url(../img/basket.png);*/
+    background-image: url(../img/shape_square_add.png);
+}
+
+.x-btn .basket-delete {
+    background-image: url(../img/shape_square_delete.png);
+}
+
+.x-btn .information {
+    background-image: url(../img/information.png);
+}
+
+.x-btn .word {
+    background-image: url(../img/page_word.png);
+}
+
+.x-btn .excel {
+    background-image: url(../img/page_excel.png);
+}
+
+.x-btn .csv {
+    background-image: url(../img/page.png);
+}
+
+.report, .x-btn .report {
+    background-image: url(../img/page_white_add.png);
+}
+
+.x-btn .highlight-yellow {
+    background-image: url(../img/shape_square_yellow.png);
+}
+
+.x-btn .highlight-orange {
+    background-image: url(../img/shape_square_orange.png);
+}
+
+.x-btn .nohighlight {
+    background-image: url(../img/shape_square_gray.png);
+}
+
+/* A custom class for Alachua Ext buttons that
+   act as if they were links. When using, use in
+   conjunction with with the desired button class.
+   
+   For instance:
+   
+   new Ext.Button({
+       text: "Word Mailing Labels",
+       scope: this,
+       cls: "x-btn-text-icon x-link-btn",
+       iconCls: "word"
+   })
+*/
+
+.x-link-btn .x-btn-left, .x-link-btn .x-btn-center, .x-link-btn .x-btn-right {
+	background: none;
+}
+
+.x-link-btn.x-btn-over {
+    text-decoration: underline;
+}
+
+.x-link-btn-search button {
+    color: blue;
+}
+
+.x-link-btn-search.x-btn-over button{
+    color: black;
+}
+
+.x-download-panel {
+    border-right: 1px solid #8db2e3;
+    background-color: #FFFFFF;
+}
+
+.x-header-panel {
+    background: #deecfd;
+    padding-top: 2px;
+    color: #15428b;
+}
+
+.x-header-panel .x-panel-body {
+    background: #deecfd;
+}
+
+.x-header-panel .title {
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 5px;
+    position: relative;
+    top: 7px;
+}
+
+.x-header-panel .tagline {
+    font-size: 12px;
+    font-style: italic;
+    position: relative;
+    top: 7px;
+}
+
+.x-header-panel .links .x-btn {
+    display: inline;
+}
+
+.x-header-panel .icon {
+    padding: inherit 5px;
+}
+
+.x-header-panel .icon div {
+    vertical-align: middle;
+    background: url("../img/alachua-county30px.png");
+    *-background: none;
+    *-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../theme/img/alachua-county30px.png',sizingMethod='crop');
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+
+.x-header-panel .links {
+    padding-top: 5px;    
+}
+
+.x-header-panel .buttons{
+    padding-top: 3px;
+    position: absolute;
+    right: 0;
+}
+
+.x-header-panel .buttons .x-toolbar {
+    /* For IE 6 and 7 */
+   float: right;
+}
+
+.x-header-panel .buttons .x-toolbar {
+    background: none;
+    border: none;
+}
+
+.x-layerproperties-panel .x-panel-body {
+    padding: 5px;
+}
+
+.x-layerproperties-panel .x-panel-body h2 {
+    margin: 9pt 0 3pt 0;
+}
+
+.x-layerproperties-panel .x-panel-body td {
+    font-size: 8pt;
+    vertical-align: top;
+    padding-right: 3pt;
+    padding-bottom: 3pt;
+}
+
+.x-layerproperties-panel .x-panel-body th {
+    font-size: 8pt;
+    font-weight: bold;
+    padding-right: 3pt;
+    padding-bottom: 3pt;
+}
+
+/* Here to look nice before a search is made. */
+.x-search-results {
+    background: #deecfd;
+}
+
+#layer-chooser .x-tree-node-icon {
+    height: 16px;
+    border-top: 1px none;
+    border-bottom: 1px none;
+}
+
+/* Grey out layer chooser nodes when zoomed so that a
+   layer's features are not visible */
+#layer-chooser .x-tree-node .outofrange a span{ 
+    color: #888888;
+}
+
+/* Map control CSS. */
+
+.x-map-poweredby {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    height:30px;   
+    width:97px;
+    z-index:1000;
+}
+
+.x-map-northarrow {
+    position: relative;
+    top: 4px;
+    padding-left: 4px;
+    padding-right: 2px;
+    height:24px;   
+    width:24px;
+    z-index:1000;
+}
+
+.x-map-northarrow .x-panel-body {
+    background: transparent url(../img/north_arrow.png) no-repeat;
+    *-background: none;
+    *-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../theme/img/north_arrow.png',sizingMethod='crop');
+    height: 24px;
+    width: 24px;
+}
+
+.x-map-scale-overlay {
+    position:absolute;
+    right:5px; 
+    bottom:5px;
+    z-index:900;
+    border: 1px solid #99bbe8;
+    padding: 1px;
+    background-color: #deecfd;
+}
+
+.x-map-scalebox-container {
+    position: relative;
+    top: 5px;
+}
+
+
+.x-map-scalebox .x-panel-body {
+    background: transparent;
+    white-space: nowrap;
+}
+
+.x-map-scalebox input {
+    padding-left: 0px;
+}
+
+.x-map-scalebox label {
+    font-weight: bold;
+    text-align: right;
+}
+
+.x-map-scale-overlay .x-panel {
+    float: left;
+}
+
+.x-map-scale-overlay div {
+    background: transparent;
+} 
+
+.olControlScaleLine {
+    margin-right: 4px;
+    font-size:xx-small;
+    padding: 4px;
+}
+
+.olControlPanZoomBar {
+    cursor: default;
+}
+
+.x-getfeatures-box {
+    border: solid 2px red;
+}
+
+.x-form-spatial-checkbox div {
+    display: inline;
+    padding-left: 1em;
+}
+
+/* Cursor styles. */
+
+.olControlDragPanActive {
+    cursor: url('../img/openhand.cur'), move;
+}
+
+.olControlDragPanActive.olDragDown {
+    cursor: url('../img/closedhand.cur'), move;
+}
+
+.AlachuaGetFeaturesActive {
+    cursor: default;
+}
+
+.olControlMeasureActive {
+    cursor: crosshair;
+}
+
+.AlachuaGetLonLatActive {
+    cursor: crosshair;
+}
+
+.olControlZoomBoxActive {
+    cursor: crosshair;
+}
+
+

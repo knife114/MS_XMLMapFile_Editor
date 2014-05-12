@@ -1,0 +1,56 @@
+﻿.ZoomIn {
+        	background-image: url(../../Images/icons/zoom-in.png) !important;
+        }
+.ZoomOut {
+        	background-image: url(../../Images/icons/zoom-in.png) !important;
+       }
+.ZoomBox {
+        	background-image: url(../../Images/icons/zoom-in.png) !important;
+        }
+        .ZoomToMaxExtent {
+        	background-image: url(../../Images/icons/zoom-full.png) !important;
+        }
+        .Measure {
+        	background-image: url(../../Images/icons/measure.png) !important;
+        }
+        .Navigation {
+        	background-image: url(../../Images/icons/pan.png) !important;
+        }
+        .DrawPoint {
+        	background-image: url(../../Images/icons/add_point_off.png) !important;
+        } 
+        .DrawPath{
+        	background-image: url(../../Images/icons/draw_line_off.png) !important;
+        	
+        } 
+        .DrawPolygon {
+        	background-image: url(../../Images/icons/draw_polygon_off.png) !important;
+        }
+         .ClearBufferFeature {
+        	background-image: url(../../Images/icons/remove_point_off.png) !important;
+        }
+         .Snap {
+        	background-image: url(../../Images/icons/snap.png) !important;
+        }  
+         .MeasureLine {
+        	background-image: url(../../Images/icons/measure.png) !important;
+        }  
+       .MeasurePolygon {
+        	background-image: url(../../Images/icons/select-polygon.png) !important;
+        }
+        .refreshMap {
+        	background-image: url(../../Images/icons/view-refresh.png) !important;
+        }  
+        .AddPoint {
+        	background-image: url(../../Images/icons/add_point_on.png) !important;
+        } 
+        .EditPoint {
+        	background-image: url(../../Images/icons/move_feature_on.png) !important;
+        }
+         .SavePoint {
+        	background-image: url(../../Images/icons/save_features_on.png) !important;
+        }
+        .DeletePoint {
+        	background-image: url(../../Images/icons/remove_point_on.png) !important;
+        }
+ 

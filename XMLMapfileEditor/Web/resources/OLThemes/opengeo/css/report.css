@@ -1,0 +1,14 @@
+#container {
+    width: 675px;
+    background-color: #DEECFD;
+}
+
+#features {
+    padding: 10px;
+}
+
+/* Move the scale line more right, since there
+ * is no scale box. */
+.olControlScaleLine {
+    right: 35px;
+}

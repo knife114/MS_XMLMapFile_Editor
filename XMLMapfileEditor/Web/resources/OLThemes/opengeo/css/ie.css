@@ -1,0 +1,47 @@
+/* IE specific CSS. */
+.x-map-scale-overlay {
+    width: 210px;
+}
+
+.olControlScaleLine {
+    width: 90px;
+}
+
+.x-header-panel .title {
+    top: 5px;
+}
+
+.x-header-panel .tagline {
+    top: 5px;
+}
+
+.x-header-panel .links {
+    clear: right;
+}
+
+.x-header-panel .buttons {
+    width: 265px;
+}
+
+/* We sometimes (or rather, a lot) use form elements in panels, instead of 
+ * using them directly in form panels (Ext.Panel vs. Ext.form.FormPanel). 
+ * When used in panels, IE displays those form elements incorrectly 
+ * giving them incorrect margins: the first CSS override below is meant
+ * to fix this. However, the first fix has overreaching changes  affecting 
+ * form elements placed in form panels, and so we must correct our CSS for 
+ * that case. Hence the second CSS override.
+ */
+.x-panel-body .x-form-field {
+    margin-top: -2px! important;
+    margin-bottom: 0px! important;
+}
+
+.x-form-element .x-form-field {
+    margin-top: -1px! important;
+    margin-bottom: -1px! important;
+}
+
+/* Link button override. */
+.x-link-btn .x-btn-center .x-btn-text {
+    background-position-y: 0px! important;
+}
