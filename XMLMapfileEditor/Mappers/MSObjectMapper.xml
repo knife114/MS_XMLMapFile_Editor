@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="MSObjectNS" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+	<alias>
+		<typeAlias alias="MSObject" type="XMLMapfileEditor.EngineCore.Model.MSObject"/>
+	</alias>
+  
+	<resultMaps>
+		<resultMap id="MSObject_DefaultResult" class="MSObject">
+      <result column="guid" property="Guid" type="string" dbType="TEXT"/>
+      <result column="parentguid" property="ParentGuid" type="string" dbType="TEXT"/>
+      <result column="name" property="Name" type="string" dbType="TEXT"/>
+      <result column="content" property="Content" type="string" dbType="TEXT"/>
+      <result column="folderpath" property="FolderPath" type="string" dbType="TEXT"/>
+      <result column="citype" property="CiType" type="XMLMapfileEditor.EngineCore.Model.CiType" dbType="TEXT"/>
+      <result column="createdtime" property="CreatedTime" type="DateTime" dbType="TEXT"/>
+      <result column="lastmodifiedtime" property="LastModifiedTime" type="DateTime" dbType="TEXT"/>
+      <result column="flag" property="Flag" type="int" dbType="INTEGER"/>
+      <result column="tag" property="Tag" type="string" dbType="TEXT"/>
+    </resultMap>
+	</resultMaps>
+  
+  <statements>
+
+    <insert id="MSObject_DefaultInsert" parameterClass="MSObject">
+      INSERT INTO Object(guid,parentguid,name,content,folderpath,citype,createdtime,lastmodifiedtime,flag,tag)
+      VALUES(#Guid#,#ParentGuid#,#Name#,#Content#,#FolderPath#,#CiType#,#CreatedTime#,#LastModifiedTime#,#Flag#,#Tag#)
+    </insert>
+
+      <update id="MSObject_DefaultUpdate" parameterClass="MSObject">
+      update Object set name=#Name#,content=#Content#,folderpath=#FolderPath#,citype=#CiType#,
+                                    createdtime=#CreatedTime#,lastmodifiedtime=#LastModifiedTime#,
+                                    flag=#Flag#,tag=#Tag#
+      where guid=#Guid# and parentguid=#ParentGuid#
+    </update>
+    
+		<select id="MSObject_DefaultSelect" listClass="ArrayList" resultMap="MSObject_DefaultResult" parameterClass="MSObject">
+      SELECT guid,parentguid,name,content,folderpath,citype,createdtime,lastmodifiedtime,flag,tag FROM Object where citype=#CiType#
+    </select>
+    <select id="MSObject_DefaultSelectByTypeAndPID" listClass="ArrayList" resultMap="MSObject_DefaultResult" parameterClass="MSObject">
+      SELECT guid,parentguid,name,content,folderpath,citype,createdtime,lastmodifiedtime,flag,tag FROM Object
+      where  parentguid=#ParentGuid# and citype=#CiType#
+    </select>
+    
+    <select id="MSObject_DefaultSelectSingle" listClass="ArrayList" resultClass="MSObject" parameterClass="MSObject"  resultMap="MSObject_DefaultResult" >
+      SELECT guid,parentguid,name,content,folderpath,citype,createdtime,lastmodifiedtime,flag,tag FROM Object where   guid=#Guid# 
+    </select>
+
+    <delete id="MSObject_Delete" parameterClass="string" resultClass="int">
+      delete from object
+      where guid = #guid# or parentguid = #guid#
+    </delete>
+	</statements>
+
+  <parameterMaps> 
+    <parameterMap id="MSObject_DefaultParameterSingle" class="MSObject" >
+      <parameter  column="guid" property="Guid" type="string" dbType="TEXT" direction="Input"/>
+      <parameter  column="parentguid" property="ParentGuid" type="string"  direction="Input"/>
+    </parameterMap> 
+  </parameterMaps>
+</sqlMap>

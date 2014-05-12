@@ -1,0 +1,116 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ColorPicker example</title> 
+    <link href="../../ExtJS/resources/css/ext-all.css" rel="stylesheet" type="text/css" />
+    <script src="../../ExtJS/ext-all.js" type="text/javascript"></script>
+     <script src="../../Ext.ux.ColorPicker/src/ux/colorpicker/ColorPicker.js" type="text/javascript"></script>
+    <script src="../../Ext.ux.ColorPicker/src/ux/colorpicker/ColorPickerField.js" type="text/javascript"></script>
+   <script src="../src/Ext.ux.CustomPropertyGrid.js" type="text/javascript"></script>
+<script type="text/javascript">
+//	Ext.Loader.setConfig({
+//		enabled : true,
+//		disableCaching : true
+//	});
+
+//    Ext.Loader.setPath({
+//        'Ext': '/Web/JS/Ext.ux.ColorPicker/src'
+//    });
+
+
+//	Ext.require(['Ext.ux.colorpicker.ColorPicker', 'Ext.ux.colorpicker.ColorPickerField']);
+
+//	Ext.applyIfChanged = function(object, config){
+//		var property;
+//		if (object) {
+//			for (property in config) {
+//				if (object[property] === undefined) {
+//					object[property] = config[property];
+//				} else {
+//					if(object[property] !== config[property]) {
+//						object[property] = config[property]
+//					}
+//				}
+//			}
+//		}
+//		return object;
+//	};
+
+Ext.onReady(function () { 
+
+ 
+    var Unit = Ext.create('Ext.data.Store', {
+        fields: ['abbr', 'name'],
+        data: [
+        { "abbr": "AUstralian", "name": "AUD" },
+        { "abbr": "Canadian", "name": "CND" },
+        { "abbr": "Europe", "name": "EUR" },
+        { "abbr": "british", "name": "GBP" },
+        { "abbr": "indian", "name": "INR" },
+        { "abbr": "united", "name": "USD" }
+    ]
+    });
+    var grid = { xtype: 'custompropertygrid',
+        title: "PropertyGrid实例",
+        height: 300,
+        source: {
+            "员工名称": "张三", "员工名称1": { "abbr": { "abbr": "AUstralian", "name": "AUD" }, "name": "AUD" },
+            "出生日期": new Date(1978, 01, 02),
+            "性别": "男",
+            "是否已婚": true, "Unit": 'USD',
+            "年龄2": ["Apple", "Orange", "Lemon"],
+            "年龄4": [],
+            "年龄5-空": '',
+            "年龄3": [{ "abbr": "AUstralian", "name": "AUD" }, { "abbr": "AUstralian", "name": "AUD"}]
+        },
+        customEditors: {
+            "性别": Ext.create('Ext.form.ComboBox', {
+                editable: false,
+                displayField: "sex",
+                mode: "local",
+                triggerAction: "all",
+                store: new Ext.data.SimpleStore({
+                    fields: ["sex"],
+                    data: [["男"], ["女"]]
+                })
+            }),
+
+            Unit: Ext.create('Ext.form.ComboBox', {
+                store: Unit,
+                queryMode: 'local',
+                displayField: 'name',
+                valueField: 'abbr', editable: false
+
+            })
+        }
+    };
+    
+
+    Ext.create('Ext.Viewport', {
+
+        layout: {
+            type: 'border',
+            padding: '1 2 0 2'
+        },
+        items: [{
+            id: 'content-panel',
+            region: 'center', // this is what makes this panel into a region within the containing layout
+            layout: 'anchor',
+            margins: '0',
+            activeItem: 0,
+            border: false, 
+            items: [ grid]
+        }]
+    });
+
+     
+});
+
+ 
+</script>
+</head>
+
+<body>
+</body>
+</html>

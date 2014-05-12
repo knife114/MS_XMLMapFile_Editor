@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Account" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+	<alias>
+		<typeAlias alias="ContentObject" type="DaoProvider.ContentObject,DaoProvider"/>
+	</alias>
+  
+	<resultMaps>
+		<resultMap id="ContentObject_DefaultResult" class="ContentObject">
+      <result column="ID" property="ID" type="int" dbType="Int"/>
+      <result column="Title" property="Title" type="string" dbType="Varchar"/>
+      <result column="ContentText" property="ContentText" type="string" dbType="Varchar"/>
+      <result column="Creator" property="Creator" type="string" dbType="Varchar"/>
+		</resultMap>
+	</resultMaps>
+  
+	<statements>
+     
+		<insert id="ContentObject_DefaultInsert" parameterClass="ContentObject">
+			INSERT INTO Content(Title,ContentText,Creator) VALUES(#Title#,#ContentText#,#Creator#)
+			<selectKey property="ID" resultClass="int" type="post">
+        SELECT @@IDENTITY AS value
+      </selectKey>
+		</insert>
+    
+		<select id="Content_DefaultSelect" listClass="ArrayList" resultMap="ContentObject_DefaultResult" >
+			  SELECT ID, Title, ContentText, Creator FROM Content
+		</select>
+    
+	</statements>
+
+  <parameterMaps>
+
+    <parameterMap id="ContentObject_DefaultParameter" class="ContentObject" >
+      <parameter column="Title" property="Title" type="string" dbType="Varchar" direction="Input"/>
+      <parameter column="ContentText" property="ContentText" type="string" dbType="Varchar" direction="Input"/>
+      <parameter column="Creator" property="Creator" type="string" dbType="Varchar" direction="Input"/>
+    </parameterMap>
+
+  </parameterMaps>
+</sqlMap>

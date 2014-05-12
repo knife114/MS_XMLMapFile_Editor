@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<q1:Map xmlns:q1="http://www.mapserver.org/mapserver">
+  <q1:Config />
+  <q1:imageColor />
+  <q1:Legend>
+    <q1:imageColor />
+    <q1:keySize />
+    <q1:keySpacing />
+    <q1:Label type="BITMAP">
+      <q1:align>LEFT</q1:align>
+      <q1:offset />
+      <q1:shadowColor />
+      <q1:shadowSize />
+      <q1:Style>
+        <q1:backgroundColor />
+        <q1:offset />
+        <q1:symbol />
+      </q1:Style>
+    </q1:Label>
+    <q1:outlineColor />
+  </q1:Legend>
+  <q1:QueryMap>
+    <q1:color />
+    <q1:size />
+  </q1:QueryMap>
+  <q1:Reference>
+    <q1:color />
+    <q1:outlineColor />
+    <q1:size />
+  </q1:Reference>
+  <q1:ScaleBar>
+    <q1:align>LEFT</q1:align>
+    <q1:backgroundColor />
+    <q1:color />
+    <q1:imageColor />
+    <q1:Label type="BITMAP">
+      <q1:align>LEFT</q1:align>
+      <q1:offset />
+      <q1:shadowColor />
+      <q1:shadowSize />
+      <q1:Style>
+        <q1:backgroundColor />
+        <q1:offset />
+        <q1:symbol />
+      </q1:Style>
+    </q1:Label>
+    <q1:outlineColor />
+    <q1:size />
+  </q1:ScaleBar>
+  <q1:size />
+</q1:Map>

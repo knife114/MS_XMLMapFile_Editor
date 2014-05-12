@@ -1,0 +1,80 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ColorPicker example</title> 
+    <link href="../../ExtJS/resources/css/ext-all.css" rel="stylesheet" type="text/css" />
+    <script src="../../ExtJS/ext-all.js" type="text/javascript"></script>
+     <script src="../../Ext.ux.ColorPicker/src/ux/colorpicker/ColorPicker.js" type="text/javascript"></script>
+    <script src="../../Ext.ux.ColorPicker/src/ux/colorpicker/ColorPickerField.js" type="text/javascript"></script>
+   <script src="../src/Ext.ux.CustomPropertyGrid.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+Ext.onReady(function () { 
+
+ 
+    var Unit = Ext.create('Ext.data.Store', {
+        fields: ['abbr', 'name'],
+        data: [
+        { "abbr": "AUstralian", "name": "AUD" },
+        { "abbr": "Canadian", "name": "CND" },
+        { "abbr": "Europe", "name": "EUR" },
+        { "abbr": "british", "name": "GBP" },
+        { "abbr": "indian", "name": "INR" },
+        { "abbr": "united", "name": "USD" }
+    ]
+    });
+    var grid = { xtype: 'custompropertygrid',
+        title: "PropertyGrid实例",
+        //height: 300,
+        source: { "angle": 0.0, "Config": [], "dataPattern": null, "debug": "OFF", "defResolution": "72", "extent": null, "fontSet": null, "imageColor": { "red": null, "green": null, "blue": null }, "imageType": null, "include": [], "Layer": [], "Legend": { "imageColor": { "red": null, "green": null, "blue": null }, "keySize": { "x": null, "y": null }, "keySpacing": { "x": null, "y": null }, "Label": { "align": 0, "angle": null, "antialias": 0, "antialiasSpecified": false, "buffer": null, "Item": null, "encoding": null, "font": null, "force": 1, "maxLength": "0", "maxOverlapAngle": 0.0, "maxOverlapAngleSpecified": false, "maxSize": "256", "minDistance": null, "minFeatureSize": null, "minSize": "4", "offset": { "x": null, "y": null }, "Item1": null, "outlineWidth": "1", "partials": 0, "partialsSpecified": false, "position": null, "priority": "1", "repeatDistance": null, "shadowColor": { "red": null, "green": null, "blue": null }, "shadowSize": { "x": null, "y": null }, "size": null, "Style": { "angle": "0", "antialias": 0, "antialiasSpecified": false, "backgroundColor": { "red": null, "green": null, "blue": null }, "Item": null, "gap": "0", "geomTransform": 0, "geomTransformSpecified": false, "lineCap": 0, "lineJoin": 0, "lineJoinSpecified": false, "lineJoinMaxSize": "3", "maxSize": 500.0, "maxWidth": 32.0, "minSize": 0.0, "minWidth": 0.0, "offset": { "x": null, "y": null }, "opacity": "0", "Item1": null, "pattern": null, "size": "1", "symbol": { "type": 0, "Value": null }, "width": "1" }, "wrap": null, "type": 0 }, "outlineColor": { "red": null, "green": null, "blue": null }, "position": 0, "positionSpecified": false, "postLabelCache": 0, "postLabelCacheSpecified": false, "template": null, "status": null }, "maxSize": null, "OutputFormat": [], "projection": null, "QueryMap": { "color": { "red": null, "green": null, "blue": null }, "size": { "x": null, "y": null }, "style": 0, "styleSpecified": false, "status": 0, "statusSpecified": false }, "Reference": { "color": { "red": null, "green": null, "blue": null }, "extent": null, "image": null, "marker": null, "markerSize": null, "maxBoxSize": null, "minBoxSize": null, "outlineColor": { "red": null, "green": null, "blue": null }, "size": { "x": null, "y": null }, "status": 1 }, "resolution": "72", "scaleDenom": 0.0, "scaleDenomSpecified": false, "ScaleBar": { "align": 0, "backgroundColor": { "red": null, "green": null, "blue": null }, "color": { "red": null, "green": null, "blue": null }, "imageColor": { "red": null, "green": null, "blue": null }, "intervals": "4", "Label": { "align": 0, "angle": null, "antialias": 0, "antialiasSpecified": false, "buffer": null, "Item": null, "encoding": null, "font": null, "force": 1, "maxLength": "0", "maxOverlapAngle": 0.0, "maxOverlapAngleSpecified": false, "maxSize": "256", "minDistance": null, "minFeatureSize": null, "minSize": "4", "offset": { "x": null, "y": null }, "Item1": null, "outlineWidth": "1", "partials": 0, "partialsSpecified": false, "position": null, "priority": "1", "repeatDistance": null, "shadowColor": { "red": null, "green": null, "blue": null }, "shadowSize": { "x": null, "y": null }, "size": null, "Style": { "angle": "0", "antialias": 0, "antialiasSpecified": false, "backgroundColor": { "red": null, "green": null, "blue": null }, "Item": null, "gap": "0", "geomTransform": 0, "geomTransformSpecified": false, "lineCap": 0, "lineJoin": 0, "lineJoinSpecified": false, "lineJoinMaxSize": "3", "maxSize": 500.0, "maxWidth": 32.0, "minSize": 0.0, "minWidth": 0.0, "offset": { "x": null, "y": null }, "opacity": "0", "Item1": null, "pattern": null, "size": "1", "symbol": { "type": 0, "Value": null }, "width": "1" }, "wrap": null, "type": 0 }, "outlineColor": { "red": null, "green": null, "blue": null }, "position": 5, "postLabelCache": 1, "size": { "x": null, "y": null }, "style": null, "transparent": 0, "transparentSpecified": false, "units": 4, "status": "OFF" }, "shapePath": null, "size": { "x": null, "y": null }, "symbolSet": null, "Symbol": [], "templatePattern": null, "units": "METERS", "Web": [], "name": null, "status": 0, "version": null },
+        customEditors: {
+            "性别": Ext.create('Ext.form.ComboBox', {
+                editable: false,
+                displayField: "sex",
+                mode: "local",
+                triggerAction: "all",
+                store: new Ext.data.SimpleStore({
+                    fields: ["sex"],
+                    data: [["男"], ["女"]]
+                })
+            }),
+
+            Unit: Ext.create('Ext.form.ComboBox', {
+                store: Unit,
+                queryMode: 'local',
+                displayField: 'name',
+                valueField: 'abbr', editable: false
+
+            })
+        }
+    };
+    
+
+    Ext.create('Ext.Viewport', {
+
+        layout: {
+            type: 'border',
+            padding: '1 2 0 2'
+        },
+        items: [{
+            id: 'content-panel',
+            region: 'center', // this is what makes this panel into a region within the containing layout
+            layout: 'anchor',
+            margins: '0',
+            activeItem: 0,
+            border: false, 
+            items: [ grid]
+        }]
+    });
+
+     
+});
+
+ 
+</script>
+</head>
+
+<body>
+</body>
+</html>
